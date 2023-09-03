@@ -1,0 +1,72 @@
+{% extends 'index/base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+<!-- QUIZ ONE -->
+{% for question in questions%}
+<section class="section-{{forloop.counter0}}" id="section-{{forloop.counter0}}">
+    <main>
+        <div class="text-container">
+            <h3>Pure CSS Quiz</h3>
+            <p>QUESTION {{forloop.counter}} OF 5</p>
+            <p>What does CSS stand for?</p>
+        </div>
+        <form>
+            <div class="quiz-options">
+                <input type="radio" class="input-radio one-a jshdgdgwgdwfdfwdwjfdjwwdwdco" id="one-a" name="yes-1"
+                    required>
+                <label class="radio-label jsjwjdwjdwjdwco" for="one-a">
+                    <span class="alphabet">A</span> Cascading Style Sheets <img class="icon jdsjkefkefkefefexco"
+                        src="https://res.cloudinary.com/dvhndpbun/image/upload/v1588518387/jdsjkefkefkefefexco.svg"
+                        alt="">
+                </label>
+                <input type="radio" class="input-radio one-b jshdgdgwgdwfdfwdwjfdjwwdwdin" id="one-b" name="yes-1">
+                <label class="radio-label jsjwjdwjdwjdwin" for="one-b">
+                    <span class="alphabet">B</span> Creative Screen Styling <img class="icon jfdedgwfzexf4hjin"
+                        src="https://res.cloudinary.com/dvhndpbun/image/upload/v1588517753/jfdedgwfzexf4hjin.svg">
+                </label>
+                <input type="radio" class="input-radio one-c jshdgdgwgdwfdfwdwjfdjwwdwdin" id="one-c" name="yes-1">
+                <label class="radio-label jsjwjdwjdwjdwin" for="one-c">
+                    <span class="alphabet">C</span> Cascading Style Screen <img class="icon jfdedgwfzexf4hjin"
+                        src="https://res.cloudinary.com/dvhndpbun/image/upload/v1588517753/jfdedgwfzexf4hjin.svg">
+                </label>
+            </div>
+            <a id="btn" type="submit" onclick="window.location.href='#section-{{forloop.counter}}'">Next</a>
+        </form>
+    </main>
+
+</section>
+{%endfor%}
+<div class="score-counter">
+    <p class="score-text">CORRECT:</p>
+</div>
+<!-- GAME OVER PAGE -->
+<section id="game-over">
+    <div class="game-over-content">
+        <div class="over-text-cont">
+            <h1 data-heading="Game Over">Game Over</h1>
+            <h2>Total Score:</h2>
+            <a id="btn" type="submit" onclick="window.location.href='#refresh'">Play Again</a>
+        </div>
+    </div>
+</section>
+<!-- REFRESH PAGE SECTION -->
+<section id="refresh">
+    <div class="refresh-content">
+        <svg id="Capa_1" data-name="Capa 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 341.12 341.33">
+            <defs>
+                <style>
+                    .cls-1 {
+                        fill: #fff;
+                    }
+                </style>
+            </defs>
+            <title>multimedia2</title>
+            <path class="cls-1"
+                d="M341.23,149.33V0L291.09,50.13A169.56,169.56,0,0,0,170.56,0C76.27,0,.11,76.37.11,170.67S76.27,341.33,170.56,341.33c79.47,0,146-54.4,164.91-128H291.09A127.94,127.94,0,1,1,170.56,42.67c35.31,0,67,14.72,90.13,37.86l-68.8,68.8Z"
+                transform="translate(-0.11)" />
+        </svg>
+        <h2>Refresh/Reload this page to continue</h2>
+    </div>
+</section>
+{% endblock content %}

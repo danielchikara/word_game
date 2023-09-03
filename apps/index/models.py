@@ -1,20 +1,24 @@
+from typing import Iterable, Optional
 from django.db import models
-
+from django.contrib.auth.models import AbstractUser
 # Create your models here.
-class User(models.Model):
-    email  = models.EmailField(max_length=150)
-    name = models.CharField(max_length= 150)
-    txt = models.TextField(max_length=200)
+class CustomUser(AbstractUser):
+    score = models.IntegerField(null=True, blank=True)
 
     def __str__(self) -> str:
-        return self.email
+        return self.score
     
 
 class SongsWord(models.Model):
+    url_youtube = models.URLField(null=True, blank= True)
     name = models.CharField(max_length=150, null=True, blank=True)
     
     def __str__(self) -> str:
         return self.name
+    
+    def save(self):
+        self.url_youtube = self.url_youtube.replace("watch?v=", "embed/")
+        return super().save() 
     
 class Word(models.Model):
     id_songs = models.ForeignKey(SongsWord,on_delete=models.CASCADE, null=True, blank=True)
@@ -24,6 +28,6 @@ class Word(models.Model):
         ('A','Aguda')
     )
     type_word = models.CharField(choices=WORD_CHOICES, max_length=1)
-    order_b = models.IntegerField()
+    order_b = models.IntegerField(null=True,blank=True)
     def __str__(self) :
         return self.word
