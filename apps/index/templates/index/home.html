@@ -1,72 +1,91 @@
 {% extends 'index/base.html' %}
 {% load static %}
 {% block content %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
-<!-- QUIZ ONE -->
-{% for question in questions%}
-<section class="section-{{forloop.counter0}}" id="section-{{forloop.counter0}}">
-    <main>
-        <div class="text-container">
-            <h3>Pure CSS Quiz</h3>
-            <p>QUESTION {{forloop.counter}} OF 5</p>
-            <p>What does CSS stand for?</p>
+  <div class="container">
+    <div class="wrapper">
+      <div class="screen-section main-screen">
+        <div class="quiz-image-wrapper">
+          <img class="quiz-image" src="./assets/Game-Logo.png" alt="Wapuu Trivia LOGO" />
         </div>
-        <form>
-            <div class="quiz-options">
-                <input type="radio" class="input-radio one-a jshdgdgwgdwfdfwdwjfdjwwdwdco" id="one-a" name="yes-1"
-                    required>
-                <label class="radio-label jsjwjdwjdwjdwco" for="one-a">
-                    <span class="alphabet">A</span> Cascading Style Sheets <img class="icon jdsjkefkefkefefexco"
-                        src="https://res.cloudinary.com/dvhndpbun/image/upload/v1588518387/jdsjkefkefkefefexco.svg"
-                        alt="">
-                </label>
-                <input type="radio" class="input-radio one-b jshdgdgwgdwfdfwdwjfdjwwdwdin" id="one-b" name="yes-1">
-                <label class="radio-label jsjwjdwjdwjdwin" for="one-b">
-                    <span class="alphabet">B</span> Creative Screen Styling <img class="icon jfdedgwfzexf4hjin"
-                        src="https://res.cloudinary.com/dvhndpbun/image/upload/v1588517753/jfdedgwfzexf4hjin.svg">
-                </label>
-                <input type="radio" class="input-radio one-c jshdgdgwgdwfdfwdwjfdjwwdwdin" id="one-c" name="yes-1">
-                <label class="radio-label jsjwjdwjdwjdwin" for="one-c">
-                    <span class="alphabet">C</span> Cascading Style Screen <img class="icon jfdedgwfzexf4hjin"
-                        src="https://res.cloudinary.com/dvhndpbun/image/upload/v1588517753/jfdedgwfzexf4hjin.svg">
-                </label>
-            </div>
-            <a id="btn" type="submit" onclick="window.location.href='#section-{{forloop.counter}}'">Next</a>
-        </form>
-    </main>
+        <h1>Wapuu Trivia</h1>
+        <div class="button-container">
+          <div class="button-outer">
+            <button class="default-button" id="start">Start</button>
+          </div>
+          <div class="button-outer">
+            <button class="default-button" id="how-to">How to play?</button>
+          </div>
+        </div>
+        <div class="quiz-logo">
+          <img src="assets/VCWB-Logo.png" alt="VCWB logo" />
+        </div>
+      </div>
 
-</section>
-{%endfor%}
-<div class="score-counter">
-    <p class="score-text">CORRECT:</p>
-</div>
-<!-- GAME OVER PAGE -->
-<section id="game-over">
-    <div class="game-over-content">
-        <div class="over-text-cont">
-            <h1 data-heading="Game Over">Game Over</h1>
-            <h2>Total Score:</h2>
-            <a id="btn" type="submit" onclick="window.location.href='#refresh'">Play Again</a>
+      <div class="screen-section how-to-play-screen hidden">
+        <img class="quiz-corner-logo" src="./assets/Game-Logo.png" alt="Wapuu Trivia LOGO" />
+        <button type="button" id="close-how-to" class="close-button">X</button>
+        <h2 class="title">How to play? It's easy and fun...</h2>
+        <p class="text">Answer to Wapuu trivia questions and find out how well do you know the city of Wapuss! Challenge yourself and share your Wapuu status with your friends (it's not showing off if you back it up).</p>
+
+        <p class="text">To start playing the Wapuu trivia game, first, tune to see the coolest Wapuus of all the WordCamps. When you are ready, click Start and choose the correct answer from the four given options.</p>
+
+        <p class="text">You will have 10 seconds for each question to choose your answer. After the time is up, the next question will load. So, stay tuned, be quick and pay attention to the details of each Wapuu.</p>
+
+        <p class="text">You will receive one point for each correct answer, and zero points for a wrong one. If you are right on the question, the option you choose will be green and you will get a point. If your answer is not correct, it will turn into red and no extra points for you.</p>
+
+        <p class="text">When you have finished the Wapuu trivia, your total score will indicate how well you know Wapuus by their city. Enjoy!</p>
+        <button class="default-button" id="start2">Ok. Let's start</button>
+        <div class="quiz-logo">
+          <img src="assets/VCWB-Logo.png" alt="VCWB logo" />
         </div>
+      </div>
+
+      <div class="screen-section quiz-screen hidden">
+        <div class="quiz-screen-step">
+          Round <span id="question-index"></span> out of <span id="question-count"></span>
+        </div>
+        <div class="quiz-image-wrapper">
+          <img class="quiz-image" id="question-image" src="https://wapu.us/wp-content/uploads/2019/03/Friedensreiter-Wapuu-WCOS-540x513.png" alt="" />
+        </div>
+        <div class="quiz-timer" id="progress-bar"></div>
+        <div class="quiz-question" id="quiz-text"></div>
+        <div class="button-container" id="answers-container">
+          <div class="button-outer">
+            <button id="answer0" class="default-button"></button>
+          </div>
+          <div class="button-outer">
+            <button id="answer1" class="default-button"></button>
+          </div>
+          <div class="button-outer">
+            <button id="answer2" class="default-button"></button>
+          </div>
+          <div class="button-outer">
+            <button id="answer3" class="default-button"></button>
+          </div>
+        </div>
+        <div class="quiz-logo">
+          <img src="assets/VCWB-Logo.png" alt="VCWB logo" />
+        </div>
+      </div>
+
+      <div class="screen-section result-screen hidden">
+        <div class="quiz-image-wrapper">
+          <img class="quiz-image" src="./assets/Game-Logo.png" alt="Wapuu Trivia LOGO" />
+        </div>
+        <p class="score">
+          <span id="score"></span> out of <span id="score-total"></span>
+        </p>
+        <h1 id="score-name" class="score-name">Wapuu Trivia</h1>
+        <span class="description">Along with that, he holds the untamed but attractive character of our beloved Greek historical figure and the beautiful blond curls that crown his face.</span>
+
+        <!-- <button>share facebook</button> -->
+        <!-- <button>share twitter</button> -->
+        <button class="default-button" id="start3">Play again</button>
+
+        <div class="quiz-logo">
+          <img src="assets/VCWB-Logo.png" alt="VCWB logo" />
+        </div>
+      </div>
     </div>
-</section>
-<!-- REFRESH PAGE SECTION -->
-<section id="refresh">
-    <div class="refresh-content">
-        <svg id="Capa_1" data-name="Capa 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 341.12 341.33">
-            <defs>
-                <style>
-                    .cls-1 {
-                        fill: #fff;
-                    }
-                </style>
-            </defs>
-            <title>multimedia2</title>
-            <path class="cls-1"
-                d="M341.23,149.33V0L291.09,50.13A169.56,169.56,0,0,0,170.56,0C76.27,0,.11,76.37.11,170.67S76.27,341.33,170.56,341.33c79.47,0,146-54.4,164.91-128H291.09A127.94,127.94,0,1,1,170.56,42.67c35.31,0,67,14.72,90.13,37.86l-68.8,68.8Z"
-                transform="translate(-0.11)" />
-        </svg>
-        <h2>Refresh/Reload this page to continue</h2>
-    </div>
-</section>
-{% endblock content %}
+  </div>
+{% endblock %}
