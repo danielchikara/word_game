@@ -23,7 +23,7 @@ class Index(TemplateView):
     
     def get_context_data(self, **kwargs: Any) -> Dict[str, Any]:
         context = super().get_context_data(**kwargs)
-        questions = Word.objects.all().order_by('?')
+        questions = Word.objects.all().order_by('?')[:10]
         context['questions'] = questions
         music_questions = SongsWord.objects.all().order_by('?').first()
         context['music_questions'] = music_questions

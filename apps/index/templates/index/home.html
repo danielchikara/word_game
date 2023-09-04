@@ -1,51 +1,54 @@
 {% extends 'index/base.html' %}
 {% load static %}
 {% block content %}
+
   <div class="container">
     <div class="wrapper">
       <div class="screen-section main-screen">
         <div class="quiz-image-wrapper">
-          <img class="quiz-image" src="./assets/Game-Logo.png" alt="Wapuu Trivia LOGO" />
+          <img class="quiz-image" src="https://yt3.ggpht.com/a/AATXAJzm4JsH-ufa05iHinmQoCYqc2MwYL--addt=s900-c-k-c0xffffffff-no-rj-mo" alt="LOGO Tecnico central" />
         </div>
-        <h1>Wapuu Trivia</h1>
+        <h1>Trivia de palabras graves y agudas </h1>
         <div class="button-container">
           <div class="button-outer">
-            <button class="default-button" id="start">Start</button>
+            <button class="default-button" id="start">Inicio</button>
           </div>
           <div class="button-outer">
-            <button class="default-button" id="how-to">How to play?</button>
+            <button class="default-button" id="how-to">¿Como jugar?</button>
           </div>
         </div>
         <div class="quiz-logo">
-          <img src="assets/VCWB-Logo.png" alt="VCWB logo" />
+          <img src="" alt="" />
         </div>
       </div>
 
       <div class="screen-section how-to-play-screen hidden">
-        <img class="quiz-corner-logo" src="./assets/Game-Logo.png" alt="Wapuu Trivia LOGO" />
+        <img class="quiz-corner-logo" src="https://static-00.iconduck.com/assets.00/kaitai-icon-256x256-sdz2ra2u.png" alt="DanielChikara" />
         <button type="button" id="close-how-to" class="close-button">X</button>
-        <h2 class="title">How to play? It's easy and fun...</h2>
-        <p class="text">Answer to Wapuu trivia questions and find out how well do you know the city of Wapuss! Challenge yourself and share your Wapuu status with your friends (it's not showing off if you back it up).</p>
+        <h2 class="title">Jugar es fácil y divertido</h2>
+        <p class="text"></p>
 
-        <p class="text">To start playing the Wapuu trivia game, first, tune to see the coolest Wapuus of all the WordCamps. When you are ready, click Start and choose the correct answer from the four given options.</p>
+        <p class="text">Diferencia las palabras graves de las agudas</p>
 
-        <p class="text">You will have 10 seconds for each question to choose your answer. After the time is up, the next question will load. So, stay tuned, be quick and pay attention to the details of each Wapuu.</p>
+        <p class="text">Tienes que diferenciar las palabras graves de las agudas seleccionando a cuál pertenece la palabra</p>
 
-        <p class="text">You will receive one point for each correct answer, and zero points for a wrong one. If you are right on the question, the option you choose will be green and you will get a point. If your answer is not correct, it will turn into red and no extra points for you.</p>
+        <p class="text">Palabras agudas también llamadas oxítonas. Su sílaba tónica es la última y se escriben con tilde cuando terminan en vocal (mamá), -n (canción) o -s (jamás).
 
-        <p class="text">When you have finished the Wapuu trivia, your total score will indicate how well you know Wapuus by their city. Enjoy!</p>
-        <button class="default-button" id="start2">Ok. Let's start</button>
+          No se escribe sin tilde en en el resto de las terminaciones (animal, señor, pared, cantar...). Tampoco lleva tilde Si la -s va detrás de otra consonante (debuts, robots, entrecots).</p>
+
+        <p class="text">palabras graves también llamadas llanas o paroxítonas y son el grupo más numeroso en el idioma español. Su sílaba tónica es la penúltima y se escriben con tilde cuando no terminan en vocal, -n o -s ( lápiz, césped, cárcel...).</p>
+        <button class="default-button" id="start2">Vamos a jugar</button>
         <div class="quiz-logo">
-          <img src="assets/VCWB-Logo.png" alt="VCWB logo" />
+          <img src="" alt="" />
         </div>
       </div>
 
       <div class="screen-section quiz-screen hidden">
         <div class="quiz-screen-step">
-          Round <span id="question-index"></span> out of <span id="question-count"></span>
+          preguntas <span id="question-index"></span> de <span id="question-count"></span>
         </div>
         <div class="quiz-image-wrapper">
-          <img class="quiz-image" id="question-image" src="https://wapu.us/wp-content/uploads/2019/03/Friedensreiter-Wapuu-WCOS-540x513.png" alt="" />
+          <img class="quiz-image" id="question-image" src="" alt="" />
         </div>
         <div class="quiz-timer" id="progress-bar"></div>
         <div class="quiz-question" id="quiz-text"></div>
@@ -56,36 +59,235 @@
           <div class="button-outer">
             <button id="answer1" class="default-button"></button>
           </div>
-          <div class="button-outer">
-            <button id="answer2" class="default-button"></button>
-          </div>
-          <div class="button-outer">
-            <button id="answer3" class="default-button"></button>
-          </div>
         </div>
         <div class="quiz-logo">
-          <img src="assets/VCWB-Logo.png" alt="VCWB logo" />
+          <img src="https://th.bing.com/th/id/R.7f46e32d85d84ee6557d11dbaebed9a4?rik=UIOnnrFEZNAQrQ&riu=http%3a%2f%2fwww.acofi.edu.co%2fwp-content%2fuploads%2f2020%2f02%2fESCUELA-TECNOLOGICA-INSTITUTO-TECNICO-CENTRAL-150x150.jpg&ehk=Azhqg8SIcHyXMtoKWytJrH3QHI1uRq64Kb%2bcKFTfgBc%3d&risl=&pid=ImgRaw&r=0" alt="Logo tecnico central" />
         </div>
       </div>
 
       <div class="screen-section result-screen hidden">
         <div class="quiz-image-wrapper">
-          <img class="quiz-image" src="./assets/Game-Logo.png" alt="Wapuu Trivia LOGO" />
+          <img class="quiz-image" src="https://yt3.ggpht.com/a/AATXAJzm4JsH-ufa05iHinmQoCYqc2MwYL--addt=s900-c-k-c0xffffffff-no-rj-mo" alt="UCentral" />
         </div>
         <p class="score">
-          <span id="score"></span> out of <span id="score-total"></span>
+          <span id="score"></span> de <span id="score-total"></span>
         </p>
-        <h1 id="score-name" class="score-name">Wapuu Trivia</h1>
-        <span class="description">Along with that, he holds the untamed but attractive character of our beloved Greek historical figure and the beautiful blond curls that crown his face.</span>
+        <h1 id="score-name" class="score-name"> Trivia de palabras agudas y graves</h1>
+        <span class="description">Juego desarrollado para la clase de comunicación escrita desarrollado por Brandon Ortega y Diego Reyes</span>
 
         <!-- <button>share facebook</button> -->
         <!-- <button>share twitter</button> -->
-        <button class="default-button" id="start3">Play again</button>
+        <button class="default-button" id="start3">Volver a jugar</button>
 
         <div class="quiz-logo">
-          <img src="assets/VCWB-Logo.png" alt="VCWB logo" />
+          <img src="" alt="" />
         </div>
       </div>
     </div>
   </div>
-{% endblock %}
+  <script>
+    
+    
+
+
+    (function() {
+      let startButton = document.querySelector('#start');
+      let startButton2 = document.querySelector('#start2');
+      let startButton3 = document.querySelector('#start3');
+      let howToButton = document.querySelector('#how-to');
+      let closeHowToButton = document.querySelector('#close-how-to');
+      let howToPlayScreen = document.querySelector('.how-to-play-screen');
+      let mainScreen = document.querySelector('.main-screen');
+      let quizScreen = document.querySelector('.quiz-screen');
+      let resultScreen = document.querySelector('.result-screen');
+    
+      startButton.addEventListener('click', showGamePlay);
+      startButton2.addEventListener('click', showGamePlay);
+      startButton3.addEventListener('click', showGamePlay);
+    
+      howToButton.addEventListener('click', function() {
+        howToPlayScreen.classList.remove('hidden');
+        mainScreen.classList.add('hidden');
+      });
+    
+      closeHowToButton.addEventListener('click', function() {
+        howToPlayScreen.classList.add('hidden');
+        mainScreen.classList.remove('hidden');
+      });
+    
+      let questionLength = 10;
+      let questionIndex = 0;
+      let score = 0;
+      let questions = [];
+      let timer = null
+    
+      function showGamePlay () {
+        // TODO: show spinner
+        questionIndex = 0;
+        questions = [];
+        score = 0;
+    
+        window.setTimeout(function () {
+          // TODO: get questions from server
+    
+          mainScreen.classList.add('hidden');
+          howToPlayScreen.classList.add('hidden');
+          resultScreen.classList.add('hidden');
+          quizScreen.classList.remove('hidden');
+          
+          {% for a in questions %}
+     questions.push( { word: " {{a.word}} ", answers: ['Aguda', 'Grave'], correct: '{{a.get_type_word_display}}'},)
+    {% endfor %}
+    console.log(questions)
+          
+          let questionCount = document.getElementById('question-count');
+          questionCount.innerHTML = questionLength.toString();
+          populate()
+        }, 50);
+      }
+    
+      let isEnded = function () {
+        return questionLength === questionIndex;
+      };
+    
+      function populate() {
+        let answersContainer = document.getElementById('answers-container');
+        let answerButtons = answersContainer.querySelectorAll('.default-button');
+    
+        answerButtons.forEach(function(element) {
+          element.disabled = false;
+          element.classList.remove('correct');
+          element.classList.remove('wrong');
+        });
+    
+        if (isEnded()) {
+          showScores();
+        } else {
+          startProgressbar();
+          timer = window.setTimeout(function() {
+            guess(null);
+          }, 10000);
+    
+          setQuizText('que tipo de palabra es:  '+ questions[questionIndex].word);
+    
+          let imageElement = document.getElementById('question-image');
+          //imageElement.src = './assets/wapuus/' + questions[questionIndex].image + '.png';
+    
+          // show choices
+          let choices = questions[questionIndex].answers;
+          for (let i = 0; i < choices.length; i++) {
+            let element = document.getElementById('answer' + i);
+            element.innerHTML = choices[i];
+    
+            element.addEventListener('click', handleAnswerClick)
+          }
+    
+          showProgress();
+        }
+      }
+    
+      function handleAnswerClick (e) {
+        let el = e.currentTarget;
+        let answer = el.innerHTML;
+        el.removeEventListener('click', handleAnswerClick);
+        guess(answer);
+      }
+    
+      function showProgress () {
+        let questionIndexElement = document.getElementById('question-index');
+        let index = questionIndex + 1;
+        questionIndexElement.innerHTML = index.toString();
+      }
+    
+      function guess(answer) {
+        clearTimeout(timer);
+        let answersContainer = document.getElementById('answers-container');
+        let answerButtons = answersContainer.querySelectorAll('.default-button');
+    
+        answerButtons.forEach(function(element) {
+          element.disabled = true;
+          if (element.innerHTML === questions[questionIndex].correct) {
+            element.classList.add('correct');
+          }
+        });
+    
+        stopProgressbar();
+    
+        if (questions[questionIndex].correct === answer) { // correct answer
+          score++;
+          setQuizText('¡¡Excelente 🤗!!')
+        } else if (answer) { // incorrect answer
+          setQuizText('Sigue intentando 🤣');
+          answerButtons.forEach(function(element) {
+            if (element.innerHTML === answer) {
+              element.classList.add('wrong');
+            }
+          });
+        } else {
+          setQuizText('Piensa más rápido 😛')
+        }
+    
+        questionIndex++;
+    
+        window.setTimeout(function() {
+          populate();
+        }, 3000);
+      }
+    
+      function setQuizText (text) {
+        let el = document.getElementById('quiz-text');
+        el.innerHTML = text;
+      }
+    
+      function showScores () {
+        let scoreElement = document.getElementById('score');
+        let scoreTotalElement = document.getElementById('score-total');
+        let scoreNameElement = document.getElementById('score-name');
+    
+        scoreElement.innerHTML = score.toString();
+        scoreTotalElement.innerHTML = questionLength.toString();
+    
+        if (score < 4) {
+          scoreNameElement.innerHTML = 'Novato'
+        } else if (score < 7) {
+          scoreNameElement.innerHTML = 'Excelente, pero no tanto'
+        } else if (score < 10) {
+          scoreNameElement.innerHTML = 'Impresionante'
+        } else {
+          scoreNameElement.innerHTML = 'Experto de las palabras'
+        }  
+    
+        quizScreen.classList.add('hidden');
+        resultScreen.classList.remove('hidden');
+      }
+    
+      function startProgressbar() {
+        // We select the div that we want to turn into a progressbar
+        let progressbar = document.getElementById('progress-bar');
+        progressbar.innerHTML = '';
+        // We create the div that changes width to show progress
+        let progressbarInner = document.createElement('span');
+    
+        // Append the progressbar to the main progressbardiv
+        progressbar.appendChild(progressbarInner);
+    
+        // When everything is set up we start the animation
+        progressbarInner.style.animationPlayState = 'running';
+      }
+    
+      function stopProgressbar () {
+        let progressbar = document.getElementById('progress-bar');
+        let progressbarInner = progressbar.querySelector('span');
+        progressbarInner.style.animationPlayState = 'paused';
+      }
+    
+    
+    
+      // your page initialization code here
+      // the DOM will be available here
+    
+    })();
+    
+    
+    </script>
+    {% endblock %}

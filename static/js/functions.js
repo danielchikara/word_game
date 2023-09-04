@@ -1,4 +1,4 @@
-(function() {
+(function(questions) {
   let startButton = document.querySelector('#start');
   let startButton2 = document.querySelector('#start2');
   let startButton3 = document.querySelector('#start3');
@@ -44,16 +44,16 @@
       quizScreen.classList.remove('hidden');
 
       questions = [
-        { image: '001', answers: ['Brno', 'Riga', 'London', 'Brasil'], correct: 'Brno'},
-        { image: '002', answers: ['Brno1', 'Riga1', 'London1', 'Brasil1'], correct: 'Riga1'},
-        { image: '003', answers: ['Brno2', 'Riga2', 'London2', 'Brasil2'], correct: 'London2'},
-        { image: '004', answers: ['Brno3', 'Riga3', 'London3', 'Brasil3'], correct: 'London3'},
-        { image: '005', answers: ['Brno4', 'Riga4', 'London4', 'Brasil4'], correct: 'Riga4'},
-        { image: '006', answers: ['Brno5', 'Riga5', 'London5', 'Brasil5'], correct: 'Riga5'},
-        { image: '007', answers: ['Brno6', 'Riga6', 'London6', 'Brasil6'], correct: 'Brno6'},
-        { image: '008', answers: ['Brno7', 'Riga7', 'London7', 'Brasil7'], correct: 'Brasil7'},
-        { image: '009', answers: ['Brno8', 'Riga8', 'London8', 'Brasil8'], correct: 'London8'},
-        { image: '010', answers: ['Brno9', 'Riga9', 'London9', 'Brasil9'], correct: 'Brasil9'}
+        { image: '001',word: '001', answers: ['Brno', 'Riga', 'London', 'Brasil'], correct: 'Brno'},
+        { image: '002',word: '002', answers: ['Brno1', 'Riga1', 'London1', 'Brasil1'], correct: 'Riga1'},
+        { image: '003',word: '003', answers: ['Brno2', 'Riga2', 'London2', 'Brasil2'], correct: 'London2'},
+        { image: '004',word: '004', answers: ['Brno3', 'Riga3', 'London3', 'Brasil3'], correct: 'London3'},
+        { image: '005',word: '005', answers: ['Brno4', 'Riga4', 'London4', 'Brasil4'], correct: 'Riga4'},
+        { image: '006',word: '006', answers: ['Brno5', 'Riga5', 'London5', 'Brasil5'], correct: 'Riga5'},
+        { image: '007',word: '007', answers: ['Brno6', 'Riga6', 'London6', 'Brasil6'], correct: 'Brno6'},
+        { image: '008',word: '008', answers: ['Brno7', 'Riga7', 'London7', 'Brasil7'], correct: 'Brasil7'},
+        { image: '009',word: '009', answers: ['Brno8', 'Riga8', 'London8', 'Brasil8'], correct: 'London8'},
+        { image: '010',word: '010', answers: ['Brno9', 'Riga9', 'London9', 'Brasil9'], correct: 'Brasil9'}
       ];
       let questionCount = document.getElementById('question-count');
       questionCount.innerHTML = questionLength.toString();
@@ -83,7 +83,7 @@
         guess(null);
       }, 10000);
 
-      setQuizText('This cute wapuu is from');
+      setQuizText('que tipo de palabra es la siguiente '+ questions[questionIndex].word);
 
       let imageElement = document.getElementById('question-image');
       imageElement.src = './assets/wapuus/' + questions[questionIndex].image + '.png';

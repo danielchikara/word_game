@@ -46,7 +46,7 @@ body {
 
 .quiz-image-wrapper:before {
   content: '';
-  background: url('./assets/Wapuu-Bg.png') no-repeat center;
+  
   background-size: contain;
   height: 100%;
   left: -65px;

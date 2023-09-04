@@ -8,9 +8,29 @@
   <title>Trivia</title>
   <link rel="shorcut icon" type="image/jpg" href="https://www.listchallenges.com/f/items2020/e414894a-a949-41d6-9977-46603c68336f.jpg">
   <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+  
 </head>
 <body>
+  <audio id="soundgame"  loop>
+    <source src="{% static 'source/space-level.mp3' %}" type="audio/mp3">
+    Tu navegador no soporta audio HTML5.
+</audio>
+<script>
+    // Obtén una referencia al elemento de audio
+    var audio = document.getElementById("soundgame");
+
+    // Función para reproducir el audio al hacer clic en algún lugar de la página
+    function playAudio() {
+        audio.play();
+        // Elimina el manejador de eventos después de la primera reproducción
+        document.removeEventListener("click", playAudio);
+    }
+
+    // Agrega un manejador de eventos para reproducir el audio al hacer clic en cualquier lugar de la página
+    document.addEventListener("click", playAudio);
+</script>
   {% block content %}{% endblock content %}
-  <script src="{% static 'js/functions.js' %}"></script>
+  
+  
 </body>
 </html>
